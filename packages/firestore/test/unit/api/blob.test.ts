@@ -31,6 +31,12 @@ describe('Blob', () => {
     'AP8A/w==': [0, 255, 0, 255]
   };
 
+  // DO NOT MERGE.
+  // For demonstration of error messages only.
+  it('yifany --- this case is intended to fail', () => {
+    expect(true).to.equal(false);
+  });
+
   it('constructs values from Base64', () => {
     Object.keys(base64Mappings).forEach(base64Str => {
       const blob = Blob.fromBase64String(base64Str);
