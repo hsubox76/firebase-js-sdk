@@ -102,7 +102,7 @@ const config = {
 
   client: {
     mocha: {
-      opts: `${__dirname}/mocha.browser.opts`
+      opts: `${__dirname}/mocha.opts`
     },
 
     // Pass through --grep option to filter the tests that run.

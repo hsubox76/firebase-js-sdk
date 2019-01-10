@@ -1,0 +1,10 @@
+# See:
+#   - https://mochajs.org/#mochaopts for more information on the mocha config file.
+#   - https://mochajs.org/#usage for more information on mocha flags.
+#   - https://github.com/karma-runner/karma-mocha for more information on mocha flags supported by
+#     the karma mocha runner.
+--timeout 20000
+--retries 5
+
+# Node doesn't exit after mocha test completion. Supplying this flag for force exit.
+--exit
