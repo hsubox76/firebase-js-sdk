@@ -25,7 +25,7 @@ jobs:
       run: yarn build
     - name: Deploy canary
       run: |
-        [ "${secrets.NPM_TOKEN+x}" ] && echo "//registry.npmjs.org/:_authToken=\${secrets.NPM_TOKEN}" > $HOME/.npmrc || echo "Skipping .npmrc creation"
+        echo "//registry.npmjs.org/:_authToken=\\"$NODE_AUTH_TOKEN > $HOME/.npmrc
         yarn release --canary
       env:
         NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
