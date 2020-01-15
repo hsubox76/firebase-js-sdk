@@ -24,7 +24,6 @@ jobs:
     - name: yarn build
       run: yarn build
     - name: Deploy canary
-      # run: yarn release --canary
-      run: echo "Canary release dry run"
+      run: yarn release --canary
       env:
         NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
