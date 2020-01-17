@@ -30,6 +30,7 @@ jobs:
         npm config set //wombat-dressing-room.appspot.com/mypackage/_ns/:authToken=$NODE_AUTH_TOKEN
         npm config set scope "@firebase"
         npm config ls
+        cat /home/runner/work/_temp/.npmrc
         npm whoami
         yarn release --canary
       env:
