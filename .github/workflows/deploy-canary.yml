@@ -12,6 +12,8 @@ jobs:
     name: Deploy
     runs-on: ubuntu-latest
     # if: github.event.pull_request.merged
+    env:
+      NODE_AUTH_TOKEN: ${{secrets.WOMBOT_NPM_TOKEN}}
 
     steps:
     - uses: actions/checkout@v1
@@ -26,6 +28,7 @@ jobs:
     #   run: yarn build
     - name: Deploy canary
       run: |
+        echo $NODE_AUTH_TOKEN
         npm config set registry https://wombat-dressing-room.appspot.com/firebase/_ns/
         npm config set //wombat-dressing-room.appspot.com/mypackage/_ns/:authToken=$NODE_AUTH_TOKEN
         npm config set scope "@firebase"
@@ -33,5 +36,3 @@ jobs:
         cat /home/runner/work/_temp/.npmrc
         npm whoami
         yarn release --canary
-      env:
-        NODE_AUTH_TOKEN: ${{secrets.WOMBOT_NPM_TOKEN}}
