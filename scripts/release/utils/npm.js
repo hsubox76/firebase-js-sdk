@@ -48,7 +48,13 @@ async function publishPackage(pkg, releaseType) {
     if (releaseType === 'Staging') {
       args = [...args, '--tag', 'next'];
     } else if (releaseType === 'Canary') {
-      args = [...args, '--tag', 'canary', '--registry', `https://wombat-dressing-room.appspot.com/${pkg}/_ns/`];
+      args = [
+        ...args,
+        '--tag',
+        'canary',
+        '--registry',
+        `https://wombat-dressing-room.appspot.com/${pkg}/_ns/`
+      ];
     }
 
     return spawn('npm', args, { cwd: path });
