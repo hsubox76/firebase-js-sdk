@@ -21,7 +21,7 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: 10.x
-        registry-url: 'https://wombat-dressing-room.appspot.com/firebase/_ns'
+        registry-url: 'https://wombat-dressing-room.appspot.com/firebase/_ns/'
     # - name: Yarn install
     #   run: yarn
     # - name: yarn build
