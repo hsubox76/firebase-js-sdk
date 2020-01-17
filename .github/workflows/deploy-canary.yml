@@ -26,6 +26,7 @@ jobs:
       run: yarn build
     - name: Deploy canary
       run: |
+        npm config set registry https://wombat-dressing-room.appspot.com/firebase/_ns/
         npm config set //wombat-dressing-room.appspot.com/mypackage/_ns:authToken=$NODE_AUTH_TOKEN
         npm config set scope "@firebase"
         yarn release --canary
