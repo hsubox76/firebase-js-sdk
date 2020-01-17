@@ -32,3 +32,5 @@ jobs:
         cat /home/runner/work/_temp/.npmrc
         npm --registry https://wombat-dressing-room.appspot.com/firebase/_ns/ whoami
         yarn release --canary
+      env:
+        CI: true
