@@ -29,6 +29,7 @@ jobs:
         npm config set registry https://wombat-dressing-room.appspot.com/firebase/_ns/
         npm config set //wombat-dressing-room.appspot.com/mypackage/_ns:authToken=$NODE_AUTH_TOKEN
         npm config set scope "@firebase"
+        npm config ls
         yarn release --canary
       env:
         NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
