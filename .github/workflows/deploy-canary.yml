@@ -28,7 +28,6 @@ jobs:
     #   run: yarn build
     - name: Deploy canary
       run: |
-        npm config set registry https://wombat-dressing-room.appspot.com/firebase/_ns
         npm config ls
         cat /home/runner/work/_temp/.npmrc
         npm whoami
