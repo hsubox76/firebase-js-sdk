@@ -19,16 +19,16 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: 10.x
-    - name: Yarn install
-      run: yarn
-    - name: yarn build
-      run: yarn build
+    # - name: Yarn install
+    #   run: yarn
+    # - name: yarn build
+    #   run: yarn build
     - name: Deploy canary
       run: |
-        npm config set //wombat-dressing-room.appspot.com/firebase/_ns:_authToken=$NPM_TOKEN_FIREBASE
-        npm config set //wombat-dressing-room.appspot.com/@firebase/analytics/_ns:_authToken=$NPM_TOKEN_ANALYTICS
+        npm config set //wombat-dressing-room.appspot.com/firebase/_ns:_authToken $NPM_TOKEN_FIREBASE
+        npm config set //wombat-dressing-room.appspot.com/@firebase/analytics/_ns:_authToken $NPM_TOKEN_ANALYTICS
         npm config ls
-        yarn release --canary
+        # yarn release --canary
       env:
         CI: true
         NPM_TOKEN_FIREBASE: ${{ secrets.NPM_TOKEN_FIREBASE }}
