@@ -25,7 +25,7 @@ jobs:
     - name: yarn build
       run: yarn build
     - name: Deploy canary
-      run: yarn release --canary --single firebase --skipReinstall 
+      run: yarn release --canary --single firebase --skipReinstall --skipBuild
       env:
         CI: true
         NPM_TOKEN_FIREBASE: ${{ secrets.NPM_TOKEN_FIREBASE }}

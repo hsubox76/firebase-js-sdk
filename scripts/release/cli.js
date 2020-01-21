@@ -174,7 +174,9 @@ const { argv } = require('yargs');
     /**
      * build packages
      */
-    await buildPackages();
+    if (!argv.skipBuild) {
+      await buildPackages();
+    }
 
     /**
      * Don't do the following for canary releases:

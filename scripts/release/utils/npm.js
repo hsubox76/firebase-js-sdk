@@ -49,15 +49,17 @@ async function publishPackage(pkg, releaseType) {
       args = [...args, '--tag', 'next'];
     } else if (releaseType === 'Canary') {
       args = [
-        'npm',
         ...args,
         '--tag',
         'canary',
         '--registry',
         `https://wombat-dressing-room.appspot.com/${pkg}/_ns/`
       ];
-      return spawn(`NODE_AUTH_TOKEN=${process.env.NPM_TOKEN_FIREBASE}`, args, {
-        cwd: path
+      return spawn('npm', args, {
+        cwd: path,
+        env: {
+          NODE_AUTH_TOKEN: process.env.NPM_TOKEN_FIREBASE
+        }
       });
     }
     return spawn('npm', args, { cwd: path });
