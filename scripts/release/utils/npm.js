@@ -56,7 +56,7 @@ async function publishPackage(pkg, releaseType) {
         '--registry',
         `https://wombat-dressing-room.appspot.com/${pkg}/_ns/`
       ];
-      return spawn(`NODE_AUTH_TOKEN=${NPM_TOKEN_FIREBASE}`, args, {
+      return spawn(`NODE_AUTH_TOKEN=${process.env.NPM_TOKEN_FIREBASE}`, args, {
         cwd: path
       });
     }
