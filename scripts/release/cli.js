@@ -55,7 +55,7 @@ const { argv } = require('yargs');
     /**
      * If there are unstaged changes, error
      */
-    if (!process.env.CI && await hasDiff()) {
+    if (!process.env.CI && (await hasDiff())) {
       throw new Error(
         'You have unstaged changes, stash your changes before attempting to publish'
       );
