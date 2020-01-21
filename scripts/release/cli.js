@@ -120,7 +120,11 @@ const { argv } = require('yargs');
     let updates;
     if (argv.canary) {
       const sha = await getCurrentSha();
-      updates = await getAllPackages();
+      if (argv.single) {
+        updates = [argv.single]
+      } else {
+        updates = await getAllPackages();
+      }
       const pkgJsons = await Promise.all(
         updates.map(pkg => mapPkgNameToPkgJson(pkg))
       );

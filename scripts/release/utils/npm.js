@@ -56,9 +56,7 @@ async function publishPackage(pkg, releaseType) {
         '--registry',
         `https://wombat-dressing-room.appspot.com/${pkg}/_ns/`
       ];
-      return spawn(`NODE_AUTH_TOKEN=${NPM_TOKEN_ANALYTICS}`, args, {
-        cwd: path
-      });
+      return spawn(`NODE_AUTH_TOKEN=${NPM_TOKEN_FIREBASE}`, args, { cwd: path });
     }
     return spawn('npm', args, { cwd: path });
   } catch (err) {
@@ -68,7 +66,7 @@ async function publishPackage(pkg, releaseType) {
 
 exports.publishToNpm = async (updatedPkgs, releaseType, renderer) => {
   const taskArray = await Promise.all(
-    updatedPkgs.slice(0, 1).map(async pkg => {
+    updatedPkgs.map(async pkg => {
       const path = await mapPkgNameToPkgPath(pkg);
 
       /**
@@ -93,3 +91,5 @@ exports.publishToNpm = async (updatedPkgs, releaseType, renderer) => {
   console.log('\r\nPublishing Packages to NPM:');
   return tasks.run();
 };
+
+exports.publishPackage = publishPackage;
