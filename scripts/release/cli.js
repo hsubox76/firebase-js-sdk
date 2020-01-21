@@ -55,7 +55,7 @@ const { argv } = require('yargs');
     /**
      * If there are unstaged changes, error
      */
-    if (await hasDiff()) {
+    if (!process.env.CI && (await hasDiff())) {
       throw new Error(
         'You have unstaged changes, stash your changes before attempting to publish'
       );
@@ -79,8 +79,10 @@ const { argv } = require('yargs');
     /**
      * Log the user who will be publishing the packages
      */
-    const { stdout: whoami } = await exec('npm whoami');
-    console.log(`Publishing as ${whoami}`);
+    if (!process.env.CI) {
+      const { stdout: whoami } = await exec('npm whoami');
+      console.log(`Publishing as ${whoami}`);
+    }
 
     /**
      * Determine if the current release is a staging or production release
@@ -118,7 +120,11 @@ const { argv } = require('yargs');
     let updates;
     if (argv.canary) {
       const sha = await getCurrentSha();
-      updates = await getAllPackages();
+      if (argv.single) {
+        updates = [argv.single];
+      } else {
+        updates = await getAllPackages();
+      }
       const pkgJsons = await Promise.all(
         updates.map(pkg => mapPkgNameToPkgJson(pkg))
       );
@@ -168,7 +174,9 @@ const { argv } = require('yargs');
     /**
      * build packages
      */
-    await buildPackages();
+    if (!argv.skipBuild) {
+      await buildPackages();
+    }
 
     /**
      * Don't do the following for canary releases:

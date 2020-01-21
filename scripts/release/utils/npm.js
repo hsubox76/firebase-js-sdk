@@ -48,9 +48,20 @@ async function publishPackage(pkg, releaseType) {
     if (releaseType === 'Staging') {
       args = [...args, '--tag', 'next'];
     } else if (releaseType === 'Canary') {
-      args = [...args, '--tag', 'canary'];
+      args = [
+        ...args,
+        '--tag',
+        'canary',
+        '--registry',
+        `https://wombat-dressing-room.appspot.com/${pkg}/_ns/`
+      ];
+      return spawn('npm', args, {
+        cwd: path,
+        env: {
+          NODE_AUTH_TOKEN: process.env.NPM_TOKEN_FIREBASE
+        }
+      });
     }
-
     return spawn('npm', args, { cwd: path });
   } catch (err) {
     throw err;
@@ -84,3 +95,5 @@ exports.publishToNpm = async (updatedPkgs, releaseType, renderer) => {
   console.log('\r\nPublishing Packages to NPM:');
   return tasks.run();
 };
+
+exports.publishPackage = publishPackage;
