@@ -28,10 +28,10 @@ jobs:
       run: |
         npm config set registry https://wombat-dressing-room.appspot.com/firebase/_ns/
         npm config set //wombat-dressing-room.appspot.com/firebase/_ns/:_authToken=$NPM_TOKEN_FIREBASE
-        # npm config set //wombat-dressing-room.appspot.com/@firebase/analytics/_ns/:_authToken=$NPM_TOKEN_ANALYTICS
+        npm config set //wombat-dressing-room.appspot.com/@firebase/analytics/_ns/:_authToken=$NPM_TOKEN_ANALYTICS
         sleep 10
         npm config ls
-        # yarn release --canary
+        yarn release --canary
       env:
         CI: true
         NPM_TOKEN_FIREBASE: ${{ secrets.NPM_TOKEN_FIREBASE }}
