@@ -121,7 +121,7 @@ const { argv } = require('yargs');
     if (argv.canary) {
       const sha = await getCurrentSha();
       if (argv.single) {
-        updates = [argv.single]
+        updates = [argv.single];
       } else {
         updates = await getAllPackages();
       }
