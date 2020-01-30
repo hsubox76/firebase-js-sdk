@@ -49,10 +49,10 @@ jobs:
       with:
         node-version: 10.x
         registry-url: 'https://registry.npmjs.org'
-    # - name: Yarn install
-    #   run: yarn
-    # - name: yarn build
-    #   run: yarn build
+    - name: Yarn install
+      run: yarn
+    - name: yarn build
+      run: yarn build
     - name: Deploy canary
       run: |
         npm config set //registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN
