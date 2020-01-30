@@ -56,8 +56,7 @@ jobs:
     - name: Deploy canary
       run: |
         npm config set //registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN
-        npm config set scope @firebase
-        npm ls -l
+        npm config ls
         cat `npm config get userconfig`
         npm whoami
       env:
