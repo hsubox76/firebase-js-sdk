@@ -1,0 +1,12 @@
+name: Misc Checks
+
+on: pull_request
+
+jobs:
+  test:
+    name: PR Title Check
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check PR title
+      uses: hsubox76/commit-check@v1
