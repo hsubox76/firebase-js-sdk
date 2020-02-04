@@ -9,4 +9,4 @@ jobs:
 
     steps:
     - name: Check PR title
-      uses: hsubox76/commit-check@v1
+      uses: hsubox76/commit-check@master
