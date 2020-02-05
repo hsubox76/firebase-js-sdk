@@ -1,6 +1,7 @@
 name: Misc Checks
 
 on: pull_request
+types: [opened, synchronize, edited]
 
 jobs:
   test:
