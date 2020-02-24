@@ -1,6 +1,6 @@
 name: Run All Tests
 
-on:
+on: 
   pull_request:
     branches:
       - master
@@ -15,11 +15,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - name: Set up Node (10)
       uses: actions/setup-node@v1
       with:
         node-version: 10.x
+    - name: install Chrome stable
+      run: |
+        sudo apt-get update
+        sudo apt-get install google-chrome-stable
     - name: Test setup and yarn install
       run: |
         cp config/ci.config.json config/project.json
@@ -43,7 +47,7 @@ jobs:
     needs: test
 
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - name: Set up Node (10)
       uses: actions/setup-node@v1
       with:
