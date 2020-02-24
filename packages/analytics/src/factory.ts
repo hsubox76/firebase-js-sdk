@@ -61,7 +61,7 @@ let gtagName: string = 'gtag';
 let gtagCoreFunction: Gtag;
 
 /**
- * 
+ *
  * Wrapper around gtag function that ensures FID is sent with all
  * relevant event and config calls.
  */
