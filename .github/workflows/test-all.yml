@@ -60,9 +60,7 @@ jobs:
       run: yarn
     - name: Deploy canary
       run: |
-        npm config set //wombat-dressing-room.appspot.com/firebase/_ns/=$NPM_TOKEN_FIREBASE
-        npm config set //wombat-dressing-room.appspot.com/@firebase/analytics/_ns/=$NPM_TOKEN_ANALYTICS
-        npm config set //wombat-dressing-room.appspot.com/@firebase/app-types/_ns/=$NPM_TOKEN_APP_TYPES
+        echo "//wombat-dressing-room.appspot.com/@firebase/app-types/_ns/:_authToken=${NPM_TOKEN_APP_TYPES}" >> ~/.npmrc
         yarn release --canary
       env:
         NPM_TOKEN_FIREBASE: ${{secrets.NPM_TOKEN_FIREBASE}}
