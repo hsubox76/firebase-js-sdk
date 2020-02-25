@@ -62,6 +62,7 @@ jobs:
       run: |
         echo "//wombat-dressing-room.appspot.com/@firebase/app-types/_ns/:_authToken=$NPM_TOKEN_APP_TYPES" >> ~/.npmrc
         cat ~/.npmrc
+        yarn release --canary
       # run: |
       #   echo "//wombat-dressing-room.appspot.com/@firebase/app-types/_ns/:_authToken=$NPM_TOKEN_APP_TYPES" >> ~/.npmrc
       #   yarn release --canary
