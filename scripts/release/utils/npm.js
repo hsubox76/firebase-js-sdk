@@ -48,9 +48,10 @@ async function publishPackage(pkg, releaseType) {
     if (releaseType === 'Staging') {
       args = [...args, '--tag', 'next'];
     } else if (releaseType === 'Canary') {
-      await exec(`echo NPMRC START`, { stdio: 'inherit' });
-      await exec(`cat ~/.npmrc`, { stdio: 'inherit' });
-      await exec(`echo NPMRC END`, { stdio: 'inherit' });
+      console.log('NPMRC START');
+      const { stdout: npmrc } = await exec('cat ~/.npmrc');
+      console.log(npmrc);
+      console.log('NPMRC END');
       // await exec(`echo "//wombat-dressing-room.appspot.com/:_authToken=${process.env.NPM_TOKEN_APP_TYPES}" >> ~/.npmrc`);
       args = [
         ...args,
