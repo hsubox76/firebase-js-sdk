@@ -81,13 +81,12 @@ exports.publishToNpm = async (updatedPkgs, releaseType, renderer) => {
       };
     })
   );
-  // const tasks = new Listr(taskArray, {
-  //   concurrent: false,
-  //   exitOnError: false,
-  //   renderer
-  // });
+  const tasks = new Listr(taskArray, {
+    concurrent: false,
+    exitOnError: false,
+    renderer
+  });
 
   console.log('\r\nPublishing Packages to NPM:');
-  return Promise.all(taskArray[0].task());
-  // return tasks.run();
+  return tasks.run();
 };
