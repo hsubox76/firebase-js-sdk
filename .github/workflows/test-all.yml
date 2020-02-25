@@ -55,12 +55,11 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: 10.x
-        registry-url: 'https://wombat-dressing-room.appspot.com/firebase/_ns/'
     - name: Yarn install
       run: yarn
     - name: Deploy canary
       run: |
-        echo "//wombat-dressing-room.appspot.com/@firebase/app-types/_ns/:_authToken=$NPM_TOKEN_APP_TYPES" >> ~/.npmrc
+        echo "//wombat-dressing-room.appspot.com/@firebase/app-types/_ns:_authToken=$NPM_TOKEN_APP_TYPES" >> ~/.npmrc
         cat ~/.npmrc
         yarn release --canary
       # run: |
