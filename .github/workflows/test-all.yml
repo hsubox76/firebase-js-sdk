@@ -70,4 +70,5 @@ jobs:
         NPM_TOKEN_FIREBASE: ${{secrets.NPM_TOKEN_FIREBASE}}
         NPM_TOKEN_ANALYTICS: ${{secrets.NPM_TOKEN_ANALYTICS}}
         NPM_TOKEN_APP_TYPES: ${{secrets.NPM_TOKEN_APP_TYPES}}
+        NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN_APP_TYPES}}
         CI: true
