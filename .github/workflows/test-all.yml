@@ -56,6 +56,8 @@ jobs:
       with:
         node-version: 10.x
         registry-url: 'https://wombat-dressing-room.appspot.com/firebase/_ns/'
+    - name: Yarn install
+      run: yarn
     - name: Deploy canary
       run: |
         npm config set //wombat-dressing-room.appspot.com/firebase/_ns/=$NPM_TOKEN_FIREBASE
