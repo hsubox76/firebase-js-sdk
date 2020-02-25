@@ -16,7 +16,7 @@
  */
 
 const { projectRoot: root } = require('./constants');
-const { spawn } = require('child-process-promise');
+const { spawn, exec } = require('child-process-promise');
 const { mapPkgNameToPkgPath } = require('./workspace');
 const { readFile: _readFile } = require('fs');
 const { promisify } = require('util');
@@ -48,6 +48,8 @@ async function publishPackage(pkg, releaseType) {
     if (releaseType === 'Staging') {
       args = [...args, '--tag', 'next'];
     } else if (releaseType === 'Canary') {
+      // await exec(`cat ~/.npmrc`);
+      // await exec(`echo "//wombat-dressing-room.appspot.com/:_authToken=${process.env.NPM_TOKEN_APP_TYPES}" >> ~/.npmrc`);
       args = [
         ...args,
         '--tag',
