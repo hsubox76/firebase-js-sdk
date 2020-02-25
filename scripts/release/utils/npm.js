@@ -53,7 +53,7 @@ async function publishPackage(pkg, releaseType) {
         '--tag',
         'canary',
         '--registry',
-        `//wombat-dressing-room.appspot.com/${pkg}/_ns/`
+        `https://wombat-dressing-room.appspot.com/${pkg}/_ns/`
       ];
     }
 
