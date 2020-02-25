@@ -50,7 +50,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Checkout
-      run: git fetch --depth=1 origin +refs/tags/*:refs/tags/*
+      run: git fetch --prune --unshallow
     - name: Set up Node (10)
       uses: actions/setup-node@v1
       with:
