@@ -1,6 +1,6 @@
 {
   "name": "@firebase/storage-types",
-  "version": "0.3.9",
+  "version": "0.3.9-canary.a8e366f7",
   "description": "@firebase/storage Types",
   "author": "Firebase <firebase-support@google.com> (https://firebase.google.com/)",
   "license": "Apache-2.0",
@@ -11,8 +11,8 @@
     "index.d.ts"
   ],
   "peerDependencies": {
-    "@firebase/app-types": "0.x",
-    "@firebase/util": "0.x"
+    "@firebase/app-types": "0.5.1-canary.a8e366f7",
+    "@firebase/util": "0.2.40-canary.a8e366f7"
   },
   "repository": {
     "directory": "packages/storage-types",

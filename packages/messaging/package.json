@@ -1,6 +1,6 @@
 {
   "name": "@firebase/messaging",
-  "version": "0.6.6",
+  "version": "0.6.6-canary.a8e366f7",
   "description": "",
   "author": "Firebase <firebase-support@google.com> (https://firebase.google.com/)",
   "main": "dist/index.cjs.js",
@@ -22,14 +22,14 @@
   },
   "license": "Apache-2.0",
   "peerDependencies": {
-    "@firebase/app": "0.x",
-    "@firebase/app-types": "0.x"
+    "@firebase/app": "0.5.4-canary.a8e366f7",
+    "@firebase/app-types": "0.5.1-canary.a8e366f7"
   },
   "dependencies": {
-    "@firebase/installations": "0.4.2",
-    "@firebase/messaging-types": "0.4.2",
-    "@firebase/util": "0.2.40",
-    "@firebase/component": "0.1.5",
+    "@firebase/installations": "0.4.2-canary.a8e366f7",
+    "@firebase/messaging-types": "0.4.2-canary.a8e366f7",
+    "@firebase/util": "0.2.40-canary.a8e366f7",
+    "@firebase/component": "0.1.5-canary.a8e366f7",
     "idb": "3.0.2",
     "tslib": "1.10.0"
   },

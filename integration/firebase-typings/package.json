@@ -1,12 +1,12 @@
 {
   "name": "firebase-package-typings-test",
   "private": true,
-  "version": "0.2.1",
+  "version": "0.2.1-canary.a8e366f7",
   "scripts": {
     "test": "tsc"
   },
   "dependencies": {
-    "firebase": "7.9.1"
+    "firebase": "7.9.1-canary.a8e366f7"
   },
   "devDependencies": {
     "typescript": "3.7.5"
