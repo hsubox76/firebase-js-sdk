@@ -57,7 +57,7 @@ async function publishPackage(pkg, releaseType) {
       ];
     }
 
-    return spawn('npm', args, { cwd: path });
+    return spawn('npm', args, { cwd: path, stdio: 'inherit' });
   } catch (err) {
     throw err;
   }
@@ -81,12 +81,13 @@ exports.publishToNpm = async (updatedPkgs, releaseType, renderer) => {
       };
     })
   );
-  const tasks = new Listr(taskArray, {
-    concurrent: false,
-    exitOnError: false,
-    renderer
-  });
+  // const tasks = new Listr(taskArray, {
+  //   concurrent: false,
+  //   exitOnError: false,
+  //   renderer
+  // });
 
   console.log('\r\nPublishing Packages to NPM:');
-  return tasks.run();
+  return Promise.all(taskArray[0].task());
+  // return tasks.run();
 };
