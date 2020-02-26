@@ -1,6 +1,6 @@
 {
   "name": "firebase-firestore-integration-test",
-  "version": "1.0.1-canary.a8e366f7",
+  "version": "1.0.1",
   "private": true,
   "scripts": {
     "build": "(cd ../../ ; yarn build) ; gulp compile-tests",

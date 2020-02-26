@@ -1,14 +1,14 @@
 {
   "name": "firebase-messaging-selenium-test",
   "private": true,
-  "version": "0.2.1-canary.a8e366f7",
+  "version": "0.2.1",
   "scripts": {
     "pretest:manual": "node ./download-browsers.js",
     "test": "echo 'Tests disabled due to flakiness'",
     "test:manual": "mocha --exit"
   },
   "dependencies": {
-    "firebase": "7.9.1-canary.a8e366f7"
+    "firebase": "7.9.1"
   },
   "devDependencies": {
     "chai": "4.2.0",

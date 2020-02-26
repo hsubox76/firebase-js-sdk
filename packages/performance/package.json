@@ -1,6 +1,6 @@
 {
   "name": "@firebase/performance",
-  "version": "0.2.32-canary.a8e366f7",
+  "version": "0.2.32",
   "description": "Firebase performance for web",
   "author": "Firebase <firebase-support@google.com> (https://firebase.google.com/)",
   "main": "dist/index.cjs.js",
@@ -22,15 +22,15 @@
     "prettier": "prettier --write '{src,test}/**/*.{js,ts}'"
   },
   "peerDependencies": {
-    "@firebase/app": "0.5.4-canary.a8e366f7",
-    "@firebase/app-types": "0.5.1-canary.a8e366f7"
+    "@firebase/app": "0.5.4",
+    "@firebase/app-types": "0.5.1"
   },
   "dependencies": {
-    "@firebase/logger": "0.1.35-canary.a8e366f7",
-    "@firebase/installations": "0.4.2-canary.a8e366f7",
-    "@firebase/util": "0.2.40-canary.a8e366f7",
-    "@firebase/performance-types": "0.0.9-canary.a8e366f7",
-    "@firebase/component": "0.1.5-canary.a8e366f7",
+    "@firebase/logger": "0.1.35",
+    "@firebase/installations": "0.4.2",
+    "@firebase/util": "0.2.40",
+    "@firebase/performance-types": "0.0.9",
+    "@firebase/component": "0.1.5",
     "tslib": "1.10.0"
   },
   "license": "Apache-2.0",

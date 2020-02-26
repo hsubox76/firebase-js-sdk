@@ -1,6 +1,6 @@
 {
   "name": "@firebase/installations",
-  "version": "0.4.2-canary.a8e366f7",
+  "version": "0.4.2",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "esm2017": "dist/index.esm2017.js",
@@ -30,13 +30,13 @@
     "typescript": "3.7.5"
   },
   "peerDependencies": {
-    "@firebase/app": "0.5.4-canary.a8e366f7",
-    "@firebase/app-types": "0.5.1-canary.a8e366f7"
+    "@firebase/app": "0.5.4",
+    "@firebase/app-types": "0.5.1"
   },
   "dependencies": {
-    "@firebase/installations-types": "0.3.1-canary.a8e366f7",
-    "@firebase/util": "0.2.40-canary.a8e366f7",
-    "@firebase/component": "0.1.5-canary.a8e366f7",
+    "@firebase/installations-types": "0.3.1",
+    "@firebase/util": "0.2.40",
+    "@firebase/component": "0.1.5",
     "idb": "3.0.2",
     "tslib": "1.10.0"
   }

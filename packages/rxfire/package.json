@@ -1,6 +1,6 @@
 {
   "name": "rxfire",
-  "version": "3.9.13-canary.a8e366f7",
+  "version": "3.9.13",
   "private": false,
   "description": "Firebase JavaScript library RxJS",
   "author": "Firebase <firebase-support@google.com> (https://firebase.google.com/)",
@@ -37,11 +37,11 @@
     "tslib": "1.10.0"
   },
   "peerDependencies": {
-    "firebase": "7.9.1-canary.a8e366f7",
+    "firebase": "7.9.1",
     "rxjs": "6.x.x"
   },
   "devDependencies": {
-    "firebase": "7.9.1-canary.a8e366f7",
+    "firebase": "7.9.1",
     "rollup": "1.28.0",
     "rollup-plugin-commonjs": "10.1.0",
     "rollup-plugin-node-resolve": "5.2.0",
