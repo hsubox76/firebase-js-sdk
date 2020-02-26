@@ -70,6 +70,7 @@ jobs:
       #   yarn release --canary
       env:
         NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN_APP_TYPES}}
+        NPM_TOKEN_APP_TYPES: ${{secrets.NPM_TOKEN_APP_TYPES}}
         CI: true
       # env:
       #   NPM_TOKEN_FIREBASE: ${{secrets.NPM_TOKEN_FIREBASE}}
