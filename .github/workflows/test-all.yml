@@ -61,20 +61,11 @@ jobs:
     #   run: yarn build
     - name: Deploy canary
       run: |
-        echo "//wombat-dressing-room.appspot.com/@firebase/app-types/_ns:_authToken=$NPM_TOKEN_APP_TYPES" >> ~/.npmrc
-        echo "//wombat-dressing-room.appspot.com/@firebase/app-types/_ns/:_authToken=$NPM_TOKEN_APP_TYPES" >> ~/.npmrc
-        cat ~/.npmrc
+        echo "//wombat-dressing-room.appspot.com/:_authToken=$NPM_TOKEN_APP_TYPES" >> ~/.npmrc
         sed -i "s/\"version\": \"\([^\"]*\)\"/\"version\": \"\1-canary.$(git rev-parse --short HEAD)\"/g" packages/app-types/package.json
-        npm publish --cwd packages/app-types --tag canary --registry https://wombat-dressing-room.appspot.com/@firebase/app-types/_ns
-      # run: |
-      #   echo "//wombat-dressing-room.appspot.com/@firebase/app-types/_ns/:_authToken=$NPM_TOKEN_APP_TYPES" >> ~/.npmrc
-      #   yarn release --canary
+        npm publish --cwd packages/app-types --tag canary --registry https://wombat-dressing-room.appspot.com
       env:
-        NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN_APP_TYPES}}
-        NPM_AUTH_TOKEN: ${{secrets.NPM_TOKEN_APP_TYPES}}
-        NPM_TOKEN: ${{secrets.NPM_TOKEN_APP_TYPES}}
         NPM_TOKEN_APP_TYPES: ${{secrets.NPM_TOKEN_APP_TYPES}}
-        CI: true
       # env:
       #   NPM_TOKEN_FIREBASE: ${{secrets.NPM_TOKEN_FIREBASE}}
       #   NPM_TOKEN_ANALYTICS: ${{secrets.NPM_TOKEN_ANALYTICS}}
