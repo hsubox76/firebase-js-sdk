@@ -23,6 +23,17 @@ const { promisify } = require('util');
 const Listr = require('listr');
 const readFile = promisify(_readFile);
 
+/**
+ * Given NPM package name, get env variable name for its publish token.
+ * @param {string} packageName NPM package name
+ */
+function getEnvTokenKey(packageName) {
+  let result = packageName.replace('@firebase/', '');
+  result = result.replace('-', '_');
+  result = result.toUpperCase();
+  return `NPM_TOKEN_${result}`;
+}
+
 async function publishPackage(pkg, releaseType) {
   try {
     const path = await mapPkgNameToPkgPath(pkg);
@@ -48,21 +59,20 @@ async function publishPackage(pkg, releaseType) {
     if (releaseType === 'Staging') {
       args = [...args, '--tag', 'next'];
     } else if (releaseType === 'Canary') {
-      console.log('NPMRC START');
-      const { stdout: npmrc } = await exec('cat ~/.npmrc');
-      console.log(npmrc);
-      console.log('NPMRC END');
-      // await exec(`echo "//wombat-dressing-room.appspot.com/:_authToken=${process.env.NPM_TOKEN_APP_TYPES}" >> ~/.npmrc`);
+      await exec(`echo "//wombat-dressing-room.appspot.com/:_authToken=${process.env[getEnvTokenKey(pkg)]}" >> ~/.npmrc`);
       args = [
         ...args,
         '--tag',
         'canary',
         '--registry',
-        `https://wombat-dressing-room.appspot.com/${pkg}/_ns`
+        `https://wombat-dressing-room.appspot.com`
       ];
     }
-
-    return spawn('npm', args, { cwd: path, stdio: 'inherit' });
+    const { stdout } = await exec('cat ~/.nmprc');
+    console.log('.nmprc contents:', stdout);
+    console.log('would run: npm', args.join(' '));
+    return Promise.resolve();
+    // return spawn('npm', args, { cwd: path, stdio: 'inherit' });
   } catch (err) {
     throw err;
   }
@@ -70,7 +80,7 @@ async function publishPackage(pkg, releaseType) {
 
 exports.publishToNpm = async (updatedPkgs, releaseType, renderer) => {
   const taskArray = await Promise.all(
-    updatedPkgs.filter(pkg => pkg.includes('app-types')).map(async pkg => {
+    updatedPkgs.filter(pkg => pkg.includes('app-types') || pkg === 'firebase').map(async pkg => {
       const path = await mapPkgNameToPkgPath(pkg);
 
       /**

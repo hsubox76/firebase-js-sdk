@@ -57,17 +57,10 @@ jobs:
         node-version: 10.x
     - name: Yarn install
       run: yarn
-    # - name: Yarn build
-    #   run: yarn build
     - name: Deploy canary
-      run: |
-        echo "//wombat-dressing-room.appspot.com/:_authToken=$NPM_TOKEN_APP_TYPES" >> ~/.npmrc
-        sed -i "s/\"version\": \"\([^\"]*\)\"/\"version\": \"\1-canary.$(git rev-parse --short HEAD)\"/g" packages/app-types/package.json
-        npm publish --cwd packages/app-types --tag canary --registry https://wombat-dressing-room.appspot.com
+      run: yarn release --canary
       env:
+        NPM_TOKEN_FIREBASE: ${{secrets.NPM_TOKEN_FIREBASE}}
+        NPM_TOKEN_ANALYTICS: ${{secrets.NPM_TOKEN_ANALYTICS}}
         NPM_TOKEN_APP_TYPES: ${{secrets.NPM_TOKEN_APP_TYPES}}
-      # env:
-      #   NPM_TOKEN_FIREBASE: ${{secrets.NPM_TOKEN_FIREBASE}}
-      #   NPM_TOKEN_ANALYTICS: ${{secrets.NPM_TOKEN_ANALYTICS}}
-      #   NPM_TOKEN_APP_TYPES: ${{secrets.NPM_TOKEN_APP_TYPES}}
-      #   CI: true
+        CI: true
