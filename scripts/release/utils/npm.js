@@ -76,7 +76,7 @@ async function publishPackage(pkg, releaseType) {
 
 exports.publishToNpm = async (updatedPkgs, releaseType, renderer) => {
   const taskArray = await Promise.all(
-    updatedPkgs.filter(pkg => pkg.includes('app-types') || pkg.includes('util')).map(async pkg => {
+    updatedPkgs.map(async pkg => {
       const path = await mapPkgNameToPkgPath(pkg);
 
       /**
