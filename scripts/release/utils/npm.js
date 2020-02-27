@@ -29,7 +29,7 @@ const readFile = promisify(_readFile);
  */
 function getEnvTokenKey(packageName) {
   let result = packageName.replace('@firebase/', '');
-  result = result.replace('-', '_');
+  result = result.replace(/-/g, '_');
   result = result.toUpperCase();
   return `NPM_TOKEN_${result}`;
 }
