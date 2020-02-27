@@ -68,8 +68,8 @@ async function publishPackage(pkg, releaseType) {
         `https://wombat-dressing-room.appspot.com`
       ];
     }
-    const { stdout } = await exec('cat ~/.nmprc');
-    console.log('.nmprc contents:', stdout);
+    const { stdout } = await exec('cat ~/.npmrc');
+    console.log('.npmrc contents:', stdout);
     console.log('would run: npm', args.join(' '));
     return Promise.resolve();
     // return spawn('npm', args, { cwd: path, stdio: 'inherit' });
