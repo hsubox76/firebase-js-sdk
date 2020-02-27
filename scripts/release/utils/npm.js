@@ -68,11 +68,7 @@ async function publishPackage(pkg, releaseType) {
         `https://wombat-dressing-room.appspot.com`
       ];
     }
-    const { stdout } = await exec('cat ~/.npmrc');
-    console.log('.npmrc contents:', stdout);
-    console.log('would run: npm', args.join(' '));
-    return Promise.resolve();
-    // return spawn('npm', args, { cwd: path, stdio: 'inherit' });
+    return spawn('npm', args, { cwd: path, stdio: 'inherit' });
   } catch (err) {
     throw err;
   }
@@ -80,7 +76,7 @@ async function publishPackage(pkg, releaseType) {
 
 exports.publishToNpm = async (updatedPkgs, releaseType, renderer) => {
   const taskArray = await Promise.all(
-    updatedPkgs.filter(pkg => pkg.includes('app-types') || pkg === 'firebase').map(async pkg => {
+    updatedPkgs.filter(pkg => pkg.includes('app-types') || package.includes('util')).map(async pkg => {
       const path = await mapPkgNameToPkgPath(pkg);
 
       /**

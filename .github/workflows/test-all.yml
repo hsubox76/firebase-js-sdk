@@ -1,6 +1,5 @@
 name: Run All Tests
 
-<<<<<<< HEAD
 on: push
 # on: 
 #   pull_request:
@@ -10,16 +9,6 @@ on: push
 #       - closed
 #   schedule:
 #     - cron: '0 6,18 * * *'
-=======
-on: 
-  pull_request:
-    branches:
-      - master
-    types:
-      - closed
-  schedule:
-    - cron: '0 6,18 * * *'
->>>>>>> 6aa9a83ec748b45e069bdc3d85f70cabfd7f9b66
 
 jobs:
   # test:
@@ -61,10 +50,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Checkout
-<<<<<<< HEAD
-=======
       # Canary release script requires git history and tags.
->>>>>>> 6aa9a83ec748b45e069bdc3d85f70cabfd7f9b66
       run: git fetch --prune --unshallow
     - name: Set up Node (10)
       uses: actions/setup-node@v1
@@ -78,4 +64,5 @@ jobs:
         NPM_TOKEN_FIREBASE: ${{secrets.NPM_TOKEN_FIREBASE}}
         NPM_TOKEN_ANALYTICS: ${{secrets.NPM_TOKEN_ANALYTICS}}
         NPM_TOKEN_APP_TYPES: ${{secrets.NPM_TOKEN_APP_TYPES}}
+        NPM_TOKEN_UTIL: ${{secrets.NPM_TOKEN_UTIL}}
         CI: true
